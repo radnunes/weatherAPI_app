@@ -1,5 +1,5 @@
 // Your API key
-const apiKey = "a8e04a8e92aa46afa3b160828242207";
+const apiKey = import.meta.env.VITE_API;
 
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
