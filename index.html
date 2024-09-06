@@ -22,9 +22,24 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-       <div id="weather-info"></div> 
-    </div>
+    <main>
+      <div class="container h-100 text-light">
+        <div class="row h-100">
+          <div id="today" class="col-9">
+            <div id="image" class="backgroundImage"></div>
+            <h1 id="title">Welcome to WeatherAPI</h1>
+            <div class="position-absolute top-50 start-50 translate-middle fw-bold fs-4">
+              <p id="temperature"></p>
+              <p id="condition"></p>
+            </div>
+          </div>
+          <div class="col-3">
+            <h2 class="text-center">3-day forecast</h1>
+            <div id="forecast"></div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     
 

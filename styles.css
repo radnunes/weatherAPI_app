@@ -1,7 +1,37 @@
-.container {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+html,
+body {
+  height: 100%;
+  margin: 0;
+        
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+nav{
+  flex: 0 1 auto;
+  z-index: 1; /* for the image*/
+}
+
+main{
+    flex: 1 1 auto;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 55%, rgba(0,212,255,1) 100%);
+}
+
+.backgroundImage{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+
+  top: 0;
+  left: -5%;
+
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  opacity: 0.4;
 }
 
 #map { height: 300px; }

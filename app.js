@@ -45,7 +45,13 @@ function showForecast(search){
         const currentCondition = data.current.condition.text; // Current condition
         const currentIconUrl = data.current.condition.icon; // URL for the current weather icon
         
+        document.getElementById("title").textContent = `${locationName}, ${country}`;
+        document.getElementById("image").style.backgroundImage = `url(${currentIconUrl})`;
+        
+        document.getElementById("temperature").textContent = `Current Temperature: ${currentTemperature}°C`;
+        document.getElementById("condition").textContent = `Current Condition: ${currentCondition}`;
         // Display current weather
+        /*
         const weatherInfo = document.getElementById('weather-info');
         weatherInfo.innerHTML = `
             <div class="card" style="width: 18rem;">
@@ -57,10 +63,10 @@ function showForecast(search){
                 </div>
             </div>
         `;
-
+        */
         // Prepare to display forecast data for the current day and the next two days
         const forecastDays = data.forecast.forecastday; // Array of forecast data for the next days
-        let forecastHTML = `<h5>3-Day Forecast:</h5><div class="row">`;
+        let forecastHTML = ``;
 
         // Loop through forecast data for today and the next two days
         for (let i = 0; i < 3; i++) {
@@ -73,20 +79,20 @@ function showForecast(search){
 
             // Append each day's forecast to the forecast HTML
             forecastHTML += `
-                <div class="card" style="width: 10rem; margin: 0 10px;">
-                    <img src="${iconUrl}" class="card-img-top" alt="${condition}">
-                    <div class="card-body">
+                <div class="card border border-dark mb-1 mx-auto" style="width: 10rem;">
+                    <img src="${iconUrl}" class="card-img-top" style="inline-size: max-content;" alt="${condition}">
+                    <div class="card-body pt-0">
                         <h6 class="card-title">${date}</h6>
-                        <p class="card-text">Max: ${maxTemp}°C</p>
-                        <p class="card-text">Min: ${minTemp}°C</p>
-                        <p class="card-text">${condition}</p>
+                        <p class="card-text">Max: ${maxTemp}°C
+                        <br/>
+                        Min: ${minTemp}°C
+                        </p>
                     </div>
                 </div>
             `;
         }
 
-        forecastHTML += '</div>'; // Close the row div
-        weatherInfo.innerHTML += forecastHTML; // Append the forecast to the existing weather info
+        document.getElementById("forecast").innerHTML = forecastHTML; // Append the forecast to the existing weather info
 
     }).catch(error => {
         console.error('Error fetching the weather data:', error);
